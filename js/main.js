@@ -1,8 +1,6 @@
 var actionBegin = (function() {
 	setSectionHeight();
-	affixNavBar();
-	$
-
+	affixNavbar();
 	$(document).click(function (e) {
   		e.stopPropagation();
    		var container = $("#navbarTop");
@@ -11,50 +9,45 @@ var actionBegin = (function() {
         }
 	})
 
+	$('#navbarTop').on('affix.bs.affix', fixNavbarHeight);
+	$('#navbarTop').on('affix-top.bs.affix', fixNavbarHeight);
 	var $navs = $('body').find('nav a')
 	$($navs).on('click', function(event) {
 		if (this.hash !== '') {
 			event.preventDefault();
 			var hash= this.hash;
 			$('html, body').animate({
-				scrollTop: $(hash).offset().top
+				scrollTop: $(hash).offset().top-75
 			}, 800);
 		}
 	})
 
-	function affixNavBar() {
-		var $navbarTop = $('#navbarTop');
-		var $navbarpxFromTop = $navbarTop.offset().top;
-		var $windowpxFromTop = 0;
-		if ($windowpxFromTop >= $navbarpxFromTop) {
-			$navbarTop.affix();
-		} else if ($windowpxFromTop < $navbarpxFromTop) {}
-	}
-
-	function checkOffsetTop (object) {
-		$("'"+object+"'").offset().top;
-	}
-
-	function setSectionHeight() {
-		var $mainSections = $('.mainSection');
-		setHeight100($mainSections);
-	}
-
-	function setHeight100(object) {
-		object.css('height', '100%');
-	}
+	
 })()
 
-var slide = (function() {
+function affixNavbar() {
+	var topE = $('#aboutUs').offset().top - 100;
+	$('#navbarTop').affix({
+		offset: {
+		top: topE,
+		}
+	});
+}	
 
-
-})()
-
-function slideRight() {
-	console.log($(event).closest('.row'))
-	getCurrentHash();
+function checkOffsetTop (object) {
+	$("'"+object+"'").offset().top;
 }
 
-function getCurrentHash() {
+function setSectionHeight() {
+	var $mainSections = $('.mainSection');
+	setHeight100($mainSections);
+}
 
+function setHeight100(object) {
+	object.css('height', '100%');
+}
+
+function fixNavbarHeight() {
+	$("#navbarTop").toggleClass('ninetyFromTop fiveFromTop');
+	$("#navbarTop").toggleClass('navbar-inverse');
 }
