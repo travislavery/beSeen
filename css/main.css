@@ -1,36 +1,128 @@
 body, html{
 	height:100%;
 	width: 100%;
+	overflow-x:visible;
+}
+
+#testBtn1 {
+	position: static;
+	left:50%;
+	bottom: 45%;
+	-webkit-transform: rotate(250deg);
+	-webkit-transition": width 2s;
+}
+#testBtn1:hover{
+	width:300px;
+}
+
+#testBtn2 {
+	position: absolute;
+	left:30%;
+	bottom: 75%;
+}
+
+.mainSection {
+	padding-top: 5%;
+	padding-bottom: 5%;
+}
+
+#contactUs {
+	z-index: 11;
+	position: fixed;
+	right:1%;
+	bottom: 3%;
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+	-webkit-transition: all .5s linear 0s;
+  	transition: all .5s linear 0s;
+}
+
+.contactShrink {
+	width: 100px;
+	height: 100px;
+}
+
+.contactEnlarged {
+	width: 400px;
+	height: 400px;
+}
+
+.btnShrink {
+	width: 30px;
+	height: 30px;
+	padding: 1px 2px 1px 2px;
+	background-image: url('../assets/arrowdown.png'); 
+	background-size: cover;
+}
+
+.btnEnlarge {
+	width: 100px;
+	height: 100px;
+	background-image: url('../assets/contact-icon.png'); 
+	background-size: cover;
+}
+
+.btnImgShrink {
+	width: 20px;
+	height: 20px;
+}
+
+.btnImgEnlarge {
+	width: 70px;
+	height: 70px;
 }
 
 #home {
-	width: 100%;
 	height: 100%;
+}
+.mainSection {
+	width: 100%;
 }
 
 #navbarTop {
-	z-index: 1;
+	z-index: 10;
 	width: 100%;
+	opacity: 0;
+
+}
+
+#navCollapsed {
+	margin-right: 15%;
 }
 
 #aboutUs {
-	background-color: red;
+
 }
 
 #embroidery {
-	background-color: blue;
+
 }
 
 #screenPrinting {
-	background-color: green;
+
+}
+
+.carousel {
+	width: 500px;
+	height: 500px;
+}
+
+.carouselImage {
+	width: 500px;
+	height: 500px;
+}
+
+.carousel-indicators {
+	z-index: 1;
 }
 
 #vinyl {
-	background-color: purple;
+
 }
 
 #extras {
-	background-color: black;
+
 }
 
 .fiveFromTop {
@@ -45,4 +137,12 @@ body, html{
 .center-pills {
 	display: flex;
 	justify-content: center;
+}
+
+.vertical-center {
+  min-height: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
 }
